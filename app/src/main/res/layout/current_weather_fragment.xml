@@ -6,6 +6,7 @@
     tools:context="com.nalfian.forecast.ui.weather.current.CurrentWeatherFragment">
 
     <TextView
+            android:id="@+id/tvResponse"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Current" />

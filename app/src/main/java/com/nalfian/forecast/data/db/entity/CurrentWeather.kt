@@ -1,8 +1,14 @@
-package com.nalfian.forecast.data.response
+package com.nalfian.forecast.data.db.entity
 
+import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-data class Current(
+const val CURRENT_WEATHER_ID = 0
+
+@Entity(tableName = "current_weather")
+data class CurrentWeather(
 
     @field:SerializedName("feelslike_c")
     val feelslikeC: Double? = null,
@@ -55,6 +61,7 @@ data class Current(
     @field:SerializedName("wind_kph")
     val windKph: Double? = null,
 
+    @Embedded(prefix = "condition_")
     @field:SerializedName("condition")
     val condition: Condition? = null,
 
@@ -72,4 +79,7 @@ data class Current(
 
     @field:SerializedName("vis_miles")
     val visMiles: Double? = null
-)
+){
+    @PrimaryKey(autoGenerate = false)
+    var id: Int = CURRENT_WEATHER_ID
+}

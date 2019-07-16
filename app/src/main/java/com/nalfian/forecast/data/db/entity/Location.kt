@@ -1,4 +1,4 @@
-package com.nalfian.forecast.data.response
+package com.nalfian.forecast.data.db.entity
 
 import com.google.gson.annotations.SerializedName
 

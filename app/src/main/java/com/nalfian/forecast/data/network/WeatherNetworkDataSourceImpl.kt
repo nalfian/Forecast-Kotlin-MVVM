@@ -18,7 +18,7 @@ class WeatherNetworkDataSourceImpl(
     override suspend fun fetchCurrentWeather(location: String, languageCode: String) {
         try {
             val fetchedCurrentWeather = apiXuWeatherApiService
-                .getCurrentWeatherAsync(location, languageCode)
+                .getCurrentWeather(location, languageCode)
                 .await()
             _downloadedCurrentWeather.postValue(fetchedCurrentWeather)
         } catch (e: NoConnectivityException){

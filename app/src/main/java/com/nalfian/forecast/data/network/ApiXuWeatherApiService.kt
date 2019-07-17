@@ -1,4 +1,4 @@
-package com.nalfian.forecast.data
+package com.nalfian.forecast.data.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.nalfian.forecast.data.network.response.CurrentWeatherResponse
@@ -22,7 +22,9 @@ interface ApiXuWeatherApiService {
     ): Deferred<CurrentWeatherResponse>
 
     companion object{
-        operator fun invoke(): ApiXuWeatherApiService{
+        operator fun invoke(
+            connectivityInterceptor: ConnectivityInterceptor
+        ): ApiXuWeatherApiService {
            val requestInterceptor = Interceptor{chain ->
 
                val url = chain.request()
@@ -41,6 +43,7 @@ interface ApiXuWeatherApiService {
 
             val okHttpClient = OkHttpClient.Builder()
                 .addInterceptor(requestInterceptor)
+                .addInterceptor(connectivityInterceptor)
                 .build()
 
             return Retrofit.Builder()

@@ -6,3 +6,4 @@
 4. Abstracting Retrofit Network Calls
 5. Repository & Kodein Dependency Injection 
 6. Current Weather View & ViewModel
+7. Current Weather User Interface

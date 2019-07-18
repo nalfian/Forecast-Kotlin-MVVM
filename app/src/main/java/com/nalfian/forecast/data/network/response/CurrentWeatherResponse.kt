@@ -6,7 +6,7 @@ import com.nalfian.forecast.data.db.entity.Location
 
 data class CurrentWeatherResponse(
 
-    @field:SerializedName("currentWeather")
+    @field:SerializedName("current")
     val currentWeather: CurrentWeather? = null,
 
     @field:SerializedName("location")

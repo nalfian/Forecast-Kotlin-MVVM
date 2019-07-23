@@ -9,4 +9,4 @@
 7. Current Weather User Interface
 8. Settings & Unit System
 9. Location Infrastructure
-10.Getting Device Location
+10. Getting Device Location

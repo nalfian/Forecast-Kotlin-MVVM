@@ -7,6 +7,8 @@ import com.nalfian.forecast.data.network.response.CurrentWeatherResponse
 import com.nalfian.forecast.data.network.response.FutureWeatherResponse
 import com.nalfian.forecast.internal.NoConnectivityException
 
+const val FORECAST_DAYS_COUNT = 7
+
 class WeatherNetworkDataSourceImpl(
     private val apiXuWeatherApiService: ApiXuWeatherApiService
 ) : WeatherNetworkDataSource {
@@ -35,7 +37,7 @@ class WeatherNetworkDataSourceImpl(
     override suspend fun fetchFutureWeather(location: String, languageCode: String) {
         try {
             val fetchedFutureWeather = apiXuWeatherApiService
-                .getFutureWeather(location, 7, languageCode)
+                .getFutureWeather(location, FORECAST_DAYS_COUNT, languageCode)
                 .await()
             _downloadedFutureWeather.postValue(fetchedFutureWeather)
         } catch (e: NoConnectivityException){

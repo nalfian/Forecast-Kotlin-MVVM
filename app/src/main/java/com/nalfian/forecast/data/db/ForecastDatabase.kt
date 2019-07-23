@@ -6,18 +6,19 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.nalfian.forecast.data.db.entity.CurrentWeather
+import com.nalfian.forecast.data.db.entity.FutureWeatherEntry
 import com.nalfian.forecast.data.db.entity.WeatherLocation
 
 
 @Database(
-    entities = [CurrentWeather::class, WeatherLocation::class],
+    entities = [CurrentWeather::class, WeatherLocation::class, FutureWeatherEntry::class],
     version = 1
 )
 @TypeConverters(LocalDateConverter::class)
 abstract class ForecastDatabase : RoomDatabase() {
     abstract fun currentWeatherDao(): CurrentWeatherDao
     abstract fun weatherLocationDao(): WeatherLocationDao
-    abstract fun FutureWeatherDao(): FutureWeatherDao
+    abstract fun futureWeatherDao(): FutureWeatherDao
 
     companion object {
         @Volatile

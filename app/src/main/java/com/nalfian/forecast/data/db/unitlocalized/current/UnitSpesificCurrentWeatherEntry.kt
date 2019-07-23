@@ -1,4 +1,4 @@
-package com.nalfian.forecast.data.db.unitlocalized
+package com.nalfian.forecast.data.db.unitlocalized.current
 
 interface UnitSpesificCurrentWeatherEntry {
     val temperature: Double

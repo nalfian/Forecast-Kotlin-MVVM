@@ -7,8 +7,8 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.nalfian.forecast.data.db.entity.CURRENT_WEATHER_ID
 import com.nalfian.forecast.data.db.entity.CurrentWeather
-import com.nalfian.forecast.data.db.unitlocalized.ImperialCurrentWeatherEntry
-import com.nalfian.forecast.data.db.unitlocalized.MetricCurrentWeatherEntry
+import com.nalfian.forecast.data.db.unitlocalized.current.ImperialCurrentWeatherEntry
+import com.nalfian.forecast.data.db.unitlocalized.current.MetricCurrentWeatherEntry
 
 @Dao
 interface CurrentWeatherDao {

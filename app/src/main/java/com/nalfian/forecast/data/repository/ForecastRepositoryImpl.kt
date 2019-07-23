@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import com.nalfian.forecast.data.db.CurrentWeatherDao
 import com.nalfian.forecast.data.db.WeatherLocationDao
 import com.nalfian.forecast.data.db.entity.WeatherLocation
-import com.nalfian.forecast.data.db.unitlocalized.UnitSpesificCurrentWeatherEntry
+import com.nalfian.forecast.data.db.unitlocalized.current.UnitSpesificCurrentWeatherEntry
 import com.nalfian.forecast.data.network.WeatherNetworkDataSource
 import com.nalfian.forecast.data.network.response.CurrentWeatherResponse
 import com.nalfian.forecast.data.provider.LocationProvider

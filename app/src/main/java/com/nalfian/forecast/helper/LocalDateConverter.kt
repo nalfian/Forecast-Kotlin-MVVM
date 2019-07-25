@@ -1,4 +1,4 @@
-package com.nalfian.forecast.data.db
+package com.nalfian.forecast.helper
 
 import androidx.room.TypeConverter
 import org.threeten.bp.LocalDate

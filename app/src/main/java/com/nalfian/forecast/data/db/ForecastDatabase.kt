@@ -8,6 +8,10 @@ import androidx.room.TypeConverters
 import com.nalfian.forecast.data.db.entity.CurrentWeather
 import com.nalfian.forecast.data.db.entity.FutureWeatherEntry
 import com.nalfian.forecast.data.db.entity.WeatherLocation
+import com.nalfian.forecast.data.db.query.CurrentWeatherDao
+import com.nalfian.forecast.data.db.query.FutureWeatherDao
+import com.nalfian.forecast.data.db.query.WeatherLocationDao
+import com.nalfian.forecast.helper.LocalDateConverter
 
 
 @Database(

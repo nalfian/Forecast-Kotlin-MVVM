@@ -16,10 +16,10 @@ interface ForecastRepository {
         metric: Boolean
     ): LiveData<out List<UnitSpecificSimpleFutureWeatherEntry>>
 
-//    suspend fun getFutureWeatherByDate(
-//        date: LocalDate,
-//        metric: Boolean
-//    ): LiveData<out UnitSpecificDetailFutureWeatherEntry>
+    suspend fun getFutureWeatherByDate(
+        date: LocalDate,
+        metric: Boolean
+    ): LiveData<out UnitSpecificDetailFutureWeatherEntry>
 
     suspend fun getWeatherLocation(): LiveData<WeatherLocation>
 

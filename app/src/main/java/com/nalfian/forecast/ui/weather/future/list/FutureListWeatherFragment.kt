@@ -10,8 +10,8 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nalfian.forecast.R
-import com.nalfian.forecast.data.db.LocalDateConverter
 import com.nalfian.forecast.data.db.unitlocalized.future.list.UnitSpecificSimpleFutureWeatherEntry
+import com.nalfian.forecast.helper.LocalDateConverter
 import com.nalfian.forecast.ui.base.ScopedFragment
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
@@ -93,9 +93,9 @@ class FutureListWeatherFragment : ScopedFragment(), KodeinAware {
     }
 
     private fun showWeatherDetail(date: LocalDate, view: View) {
-//        val dateString = LocalDateConverter.dateToString(date)!!
-//        val actionDetail = FutureListWeatherFragmentDirections.actionDetail(dateString)
-//        Navigation.findNavController(view).navigate(actionDetail)
+        val dateString = LocalDateConverter.dateToString(date)!!
+        val actionDetail = FutureListWeatherFragmentDirections.actionDetail(dateString)
+        Navigation.findNavController(view).navigate(actionDetail)
     }
 
 }

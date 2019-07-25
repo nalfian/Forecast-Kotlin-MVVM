@@ -1,4 +1,4 @@
-package com.nalfian.forecast.data.db
+package com.nalfian.forecast.data.db.query
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

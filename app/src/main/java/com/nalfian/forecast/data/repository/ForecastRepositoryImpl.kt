@@ -3,11 +3,12 @@ package com.nalfian.forecast.data.repository
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
-import com.nalfian.forecast.data.db.CurrentWeatherDao
-import com.nalfian.forecast.data.db.FutureWeatherDao
-import com.nalfian.forecast.data.db.WeatherLocationDao
+import com.nalfian.forecast.data.db.query.CurrentWeatherDao
+import com.nalfian.forecast.data.db.query.FutureWeatherDao
+import com.nalfian.forecast.data.db.query.WeatherLocationDao
 import com.nalfian.forecast.data.db.entity.WeatherLocation
 import com.nalfian.forecast.data.db.unitlocalized.current.UnitSpesificCurrentWeatherEntry
+import com.nalfian.forecast.data.db.unitlocalized.future.detail.UnitSpecificDetailFutureWeatherEntry
 import com.nalfian.forecast.data.db.unitlocalized.future.list.UnitSpecificSimpleFutureWeatherEntry
 import com.nalfian.forecast.data.network.FORECAST_DAYS_COUNT
 import com.nalfian.forecast.data.network.WeatherNetworkDataSource
@@ -63,6 +64,18 @@ class ForecastRepositoryImpl(
             initWeatherData()
             return@withContext if (metric) futureWeatherDao.getSimpleWeatherForecastsMetric(startDate)
             else futureWeatherDao.getSimpleWeatherForecastsImperial(startDate)
+        }
+    }
+
+    override suspend fun getFutureWeatherByDate(
+        date: LocalDate,
+        metric: Boolean
+    ): LiveData<out UnitSpecificDetailFutureWeatherEntry> {
+        return withContext(Dispatchers.IO){
+            initWeatherData()
+            initWeatherData()
+            return@withContext if (metric) futureWeatherDao.getDetailedWeatherByDateMetric(date)
+            else futureWeatherDao.getDetailedWeatherByDateImperial(date)
         }
     }
 

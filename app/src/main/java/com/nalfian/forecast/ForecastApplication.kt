@@ -14,14 +14,13 @@ import com.nalfian.forecast.data.provider.UnitProviderImpl
 import com.nalfian.forecast.data.repository.ForecastRepository
 import com.nalfian.forecast.data.repository.ForecastRepositoryImpl
 import com.nalfian.forecast.ui.weather.current.CurrentWeatherViewModelFactory
+import com.nalfian.forecast.ui.weather.future.detail.FutureDetailWeatherViewModelFactory
 import com.nalfian.forecast.ui.weather.future.list.FutureListWeatherViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
-import org.kodein.di.generic.bind
-import org.kodein.di.generic.instance
-import org.kodein.di.generic.provider
-import org.kodein.di.generic.singleton
+import org.kodein.di.generic.*
+import org.threeten.bp.LocalDate
 
 class ForecastApplication : Application(), KodeinAware {
     override val kodein = Kodein.lazy {
@@ -36,11 +35,25 @@ class ForecastApplication : Application(), KodeinAware {
         bind<WeatherNetworkDataSource>() with singleton { WeatherNetworkDataSourceImpl(instance()) }
         bind() from provider { LocationServices.getFusedLocationProviderClient(instance<Context>()) }
         bind<LocationProvider>() with singleton { LocationProviderImpl(instance(), instance()) }
-        bind<ForecastRepository>() with singleton { ForecastRepositoryImpl(instance(), instance(), instance(), instance(), instance()) }
+        bind<ForecastRepository>() with singleton {
+            ForecastRepositoryImpl(
+                instance(),
+                instance(),
+                instance(),
+                instance(),
+                instance()
+            )
+        }
         bind<UnitProvider>() with singleton { UnitProviderImpl(instance()) }
         bind() from provider { CurrentWeatherViewModelFactory(instance(), instance()) }
         bind() from provider { FutureListWeatherViewModelFactory(instance(), instance()) }
-
+        bind() from factory { detailDate: LocalDate ->
+            FutureDetailWeatherViewModelFactory(
+                detailDate,
+                instance(),
+                instance()
+            )
+        }
     }
 
     override fun onCreate() {

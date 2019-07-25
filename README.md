@@ -10,3 +10,7 @@
 8. Settings & Unit System
 9. Location Infrastructure
 10. Getting Device Location
+11. Future Weather Setup
+12. Future Weather ViewModel
+13. Future Weather UI
+14. Detail of Future Weather

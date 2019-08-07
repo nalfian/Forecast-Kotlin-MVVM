@@ -5,12 +5,5 @@
 3. Local Database (Room Entity & Dao)
 4. Abstracting Retrofit Network Calls
 5. Repository & Kodein Dependency Injection 
-6. Current Weather View & ViewModel
-7. Current Weather User Interface
-8. Settings & Unit System
-9. Location Infrastructure
-10. Getting Device Location
-11. Future Weather Setup
-12. Future Weather ViewModel
-13. Future Weather UI
-14. Detail of Future Weather
+6. Settings & Unit System
+7. Location Infrastructure
